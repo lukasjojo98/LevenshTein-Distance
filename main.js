@@ -3,6 +3,7 @@ function addExamples(values) {
     seperatedValues = values.replace(/\s/g, "").split("and");
     document.querySelector(".word_one").value = seperatedValues[0];
     document.querySelector(".word_two").value = seperatedValues[1];
+    createMatrix();
 }
 
 function levenshtein(str1, str2) {
@@ -34,13 +35,21 @@ function levenshtein(str1, str2) {
 
 function clearMatrix() {
     document.querySelector(".matrix-container").innerHTML = "";
+    document.querySelector(".explanation-container").innerHTML = "";
 }
 
-function createMatrix() {
+function createMatrix(button) {
     clearMatrix();
+    button.disabled = true;
+    setTimeout(() => {
+        button.disabled = false;
+    }, 5000);
     const matrixContainer = document.querySelector(".matrix-container");
     const word1 = document.querySelector(".word_one").value;
     const word2 = document.querySelector(".word_two").value;
+    if(word1 == ""|| word2 == ""){
+        return;
+    }
     const word1Length = word1.length + 2;
     const word2Length = word2.length + 2;
     
@@ -227,7 +236,6 @@ function shortestPathPositions(str1, str2) {
 				cur.type = "delete";
 		}
 	}
-    console.log(levenpath)
 	return levenpath;
 }
 
@@ -304,7 +312,6 @@ function addExplanations(distance) {
 
 function addHoverEffect(l) {
     const list = l.children;
-    console.log(targetElements)
     for(var i = 0; i < list.length; i++){
         list[i].addEventListener("mouseenter", () => {
             targetElements[i].classList.add("highlight");
