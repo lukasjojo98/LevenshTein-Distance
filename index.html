@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="header">
+            <h1>Levenshtein Distance Calculator</h1>
+            <div class="header-container">
+            <p>How many insertions, deletions and substitutions does it take to turn</p>
+            <input class="word_one" type="text" placeholder="word 1">
+            <p>into</p>
+            <input class="word_two" type="text" placeholder="word 2">
+            <p>?</p>
+            </div>
+            <div class="example-sentence">
+                <p>Try combinations like: <a href="javascript:void(0)" id="ele_and_rel" onclick="addExamples(this.innerHTML)">elephant and relevant</a>, <a href="javascript:void(0)" id="sat_and_sun" onclick="addExamples(this.innerHTML)">Saturday and Sunday</a>, <a href="javascript:void(0)" id="goo_and_fb" onclick="addExamples(this.innerHTML)">Google and Facebook</a>.</p>
+            </div>
+            <div class="button-container">
+                <div class="button-item" onclick="createMatrix()">
+                    Calculate Levenshtein distance
+                </div>
+            </div>
+        </div>
+        <div class="matrix-container">
+
+        </div>
+        <div class="explanation-container">
+            
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>
